@@ -130,7 +130,7 @@ Principal component analysis, or PCA, is a statistical procedure that allows you
 t-SNE creates a probability distribution using the Gaussian distribution that defines the relationships between the points in high-dimensional space. t-SNE uses the t-distribution to recreate the probability distribution in low-dimensional space. [2]
 
 ### PCA with TSNE
-The idea between using both PCA and TSNE to visualize the high dimensional principal components in a 2D space.
+The idea of using both PCA and TSNE to visualize the high dimensional principal components in a 2D space.
 
 PCA here takes in the high dimensional features of say the FFT-A with 918 entries of shape 12285 bins values and calculates the primary components
 
@@ -141,18 +141,22 @@ Then we further reduce the 50 principal components with TSNE into 2 dimensions f
 #### Single feature
 ##### FFT-A
 ![title](./imgs/PCA-TSNE-FFT-A.png)
+![Alt text](./imgs/tsne_FFT-A_00040_epochs_10ksteps_SNS.gif)
 ##### FFT-Z
 ![title](./imgs/PCA-TSNE-FFT-Z.png)
+![Alt text](./imgs/tsne_FFT-Z_00040_epochs_10ksteps_SNS.gif)
 ##### 3rd-Octave-A
 ![title](./imgs/PCA-TSNE-3rd-Octave-A.png)
+![Alt text](./imgs/tsne_3Oct-A_00040_epochs_10ksteps_SNS.gif)
 ##### 3rd-Octave-Z
 ![title](./imgs/PCA-TSNE-3rd-Octave-Z.png)
+![Alt text](./imgs/tsne_3Oct-Z_00040_epochs_10ksteps_SNS.gif)
 
 #### Combined features
 ##### 3rd-Octave(A) and 3rd-Octvate(Z)
 ![title](./imgs/PCA-TSNE-3rd-Octave-A-and-Z.png)
+![Alt text](./imgs/tsne_3Oct-A-and-Z_00040_epochs_10ksteps_SNS.gif)
 
-![Alt text](./imgs/tsne_FFT-Z_00040_epochs_10ksteps_SNS.gif)
 
 ```python
 ```
