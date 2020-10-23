@@ -1,3 +1,9 @@
+---
+noteId: "6acf567014f811ebab8c63cf6d6f0dda"
+tags: []
+
+---
+
 # ANC Project Report 1 - Linus
 
 ## Motivation
@@ -109,11 +115,11 @@ smb://10.97.31.159/SNTL_2/Linus/ANC_Project/Scripts/
 Dataframe:
 
 - 918 entries (rows)
-  - 700 Planes
-  - Planes (Raining)
-  - Planes (High altitude)
-  - Helicopters
-  - Rumble
+  - 732 "Planes" entries
+  - 12 "Planes (Raining)" entries
+  - 77 "Planes (High altitude)" entries
+  - 37 "Helicopters" entries
+  - 60 "Rumble" entries
 
 * 9 features (columns)
   - Class
