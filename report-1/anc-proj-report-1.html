@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>anc-proj-report-1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="anc-project-report-1---linus">ANC Project Report 1 - Linus</h1>
+<h2 id="motivation">Motivation</h2>
+<p>To find clusters using dimension reduction techniques given the data collected and provided.</p>
+<p>One of the most important aspects of dimensionality reduction is data visualization. Having to drop the dimensionality down to two or three, make it possible to visualize the data on a 2d or 3d plot, meaning important insights can be gained by analysing these patterns in terms of clusters and much more.</p>
+<h2 id="data-downloaded-and-overview">Data downloaded and overview</h2>
+<p>The downloaded files from One-Drive for this work:</p>
+<ul>
+<li>One Drive
+<ul>
+<li>FFT-A</li>
+<li>FFT-Z</li>
+<li>SPL-A</li>
+<li>SPL-Z</li>
+<li>3rd-Octave-A</li>
+<li>3rd-Octave-Z</li>
+<li>Spectrogram A</li>
+<li>Spectrogram Z</li>
+</ul>
+</li>
+</ul>
+<p>All the above downloaded folders consist of 918 collected and annotated files. Total size of 35Gb.</p>
+<p>The downloaded raw data are stored in the following path:</p>
+<pre class="hljs"><code><div>smb://10.97.31.159/SNTL_2/Linus/ANC-Project/ANC-Data/
+</div></code></pre>
+<h2 id="data-preprocessing">Data preprocessing</h2>
+<p>The preprocessing of the provided data can be broken into 5 steps:</p>
+<ol>
+<li>Reading</li>
+<li>Converting</li>
+<li>Standardizing</li>
+<li>Labelling</li>
+<li>Exporting</li>
+</ol>
+<h3 id="reading">Reading</h3>
+<p>To read the provided .asc files and converting to numpy arrays, .npy files for data processing.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># convert asc files to npy files</span>
+path = <span class="hljs-string">'../ANC-Data/Spectrogram-A/Spectrogram (A)/'</span>
+npy_dest_path = <span class="hljs-string">'../ANC-Data-NPY/Spectrogram-A/'</span>
+files = glob.glob(path + <span class="hljs-string">'*'</span>)
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> files:
+    <span class="hljs-keyword">with</span> codecs.open(i, encoding=<span class="hljs-string">'utf-8-sig'</span>) <span class="hljs-keyword">as</span> f:
+        X = np.loadtxt(f, usecols=(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>))
+        np.save(npy_dest_path + i.split(<span class="hljs-string">'/'</span>)[<span class="hljs-number">-1</span>][:<span class="hljs-number">-3</span>] + <span class="hljs-string">'npy'</span>, X)
+</div></code></pre>
+<p>The converted and exported npy files are stored in the following path:</p>
+<pre class="hljs"><code><div>smb://10.97.31.159/SNTL_2/Linus/ANC-Project/ANC-Data-NPY/
+</div></code></pre>
+<h3 id="standardization">Standardization</h3>
+<p>Standardization of a dataset is a common requirement for many
+machine learning estimators: they might behave badly if the
+individual features do not more or less look like standard normally
+distributed data (e.g. Gaussian with 0 mean and unit variance).</p>
+<p>Standardize features by removing the mean and scaling to unit variance</p>
+<p>The standard score of a sample <code>x</code> is calculated as:</p>
+<pre><code>z = (x - u) / s
+</code></pre>
+<p>where <code>u</code> is the mean of the training samples,
+and <code>s</code> is the standard deviation of the training samples.</p>
+<p>Centering and scaling happen independently on each feature by computing
+the relevant statistics on the samples in the training set.</p>
+<h3 id="labelling">Labelling</h3>
+<p>A new column, titled 'Class', is inserted into the dataframe.
+As the filenames provided were annotated with the sound class, the labelling is automated with a script that runs through the filenames and assigns the corresponding sound class as a datapoint under the 'Class' column.</p>
+<p>Figure 1 shows the generated new 'Class' column, alongside the corresponding analysis entries for each sound class.</p>
+<p>Although the 3 main classes are 'Plane', 'Helicopter' and 'Rumble', the provided annotated filenames included 2 more sub-classes ('Plane_Raining' and 'Plane_highAltitude') for 'Plane'.</p>
+<p>The finer subclasses are labelled in the dataframe as such, therefore, making the total number of classes to be 5. This will provide us better insights for the variants of class 'Plane' when we visualize the data in a 2D space.</p>
+<h3 id="exporting">Exporting</h3>
+<pre class="hljs"><code><div>df.to_csv(<span class="hljs-string">'./testing_standardized_flattened.csv'</span>)
+<span class="hljs-comment"># convert to pickle to retain assigned data types the dataframe since csv would all be converted to strings</span>
+df.to_pickle(<span class="hljs-string">'./testing_standardized_flattened.pickle'</span>)
+</div></code></pre>
+<p>The exported pickle and csv files are stored in the following path:</p>
+<pre class="hljs"><code><div>smb://10.97.31.159/SNTL_2/Linus/ANC_Project/Scripts/
+</div></code></pre>
+<h2 id="overview-of-dataframe">Overview of dataframe</h2>
+<p>Dataframe:</p>
+<ul>
+<li>918 entries (rows)
+<ul>
+<li>732 &quot;Planes&quot; entries</li>
+<li>12 &quot;Planes (Raining)&quot; entries</li>
+<li>77 &quot;Planes (High altitude)&quot; entries</li>
+<li>37 &quot;Helicopters&quot; entries</li>
+<li>60 &quot;Rumble&quot; entries</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>9 features (columns)
+<ul>
+<li>Class
+<ul>
+<li>Planes</li>
+<li>Planes_Raining</li>
+<li>Planes_HighAlt</li>
+<li>Helicopter</li>
+<li>Rumble</li>
+</ul>
+</li>
+<li>FFT-A</li>
+<li>FFT-Z</li>
+<li>SPL-A</li>
+<li>SPL-Z</li>
+<li>3rd-Octave-A</li>
+<li>3rd-Octave-Z</li>
+<li>Spectrogram-A</li>
+<li>Spectrogram-Z</li>
+</ul>
+</li>
+</ul>
+<p><img src="./imgs/DF-table.png" alt="title">
+<em>Figure 1: A snippet of the processed and exported dataframe. Each row is a data entry for the which consists the sound class and its corresponding analysis entries.</em></p>
+<h2 id="dimensionality-reduction">Dimensionality Reduction</h2>
+<p>Several techniques have been experimented. The techniques include dimension reduction techniques like PCA and TSNE,</p>
+<h3 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h3>
+<p>Principal component analysis, or PCA, is a statistical procedure that allows you to summarize the information content in large data tables by means of a smaller set of “summary indices” that can be more easily visualized and analyzed [1].</p>
+<h3 id="t-distributed-stochastic-neighbour-embedding-tsne">t-distributed stochastic neighbour embedding (TSNE)</h3>
+<p>TSNE creates a probability distribution using the Gaussian distribution that defines the relationships between the points in high-dimensional space. TSNE uses the t-distribution to recreate the probability distribution in low-dimensional space [2].</p>
+<h3 id="pca-with-tsne">PCA with TSNE</h3>
+<p>The idea is using both PCA and TSNE to visualize the high dimensional principal components in a 2D space.</p>
+<p>The approach can be summarised in 2 steps. The first, applying PCA to reduce the high dimension data of say 12285 bins of standardized FFT values into a lower dimension. The seconnd, applying TSNE on the reduced principal components to visualize the possible clusters on a 2 dimensional space.</p>
+<p>PCA here takes in the high dimensional features of the FFT-A with 918 entries of shape 12285 bins values and calculates the principal components. The number of components used in this work is set to 50.
+The extracted 50 principal components of the features were further reduced with TSNE into 2 dimensions for visualization purpose.</p>
+<p>Since FFT and 3rd-Octave are in fixed bins, 12285 and 111 respectively, we do not need to segment the data points to provide a fixed shape when feeding into both reduction algorithms.</p>
+<p>As for the Spectrogram and SPL features, since the raw audio files used to compute these features in unequal length in time initially, we would have to segment the data points in order to provide acceptable inputs for the reduction algorithms.</p>
+<p>The following subsections shows the reduced dimensions in a 2D space for visualization. The features are plotted in both static and dynamic figures. The static plot applied 1000 iterations on the TSNE algorithm, whereas the dynamic plot shows a successions of 250-interval iterations in the range of 250 to 10000 iterations.</p>
+<h4 id="single-feature">Single feature</h4>
+<h5 id="fft-a">FFT-A</h5>
+<p>12285 FFT-A bins &gt; PCA &gt; 50 principal components &gt; TSNE &gt; 2D Visualization</p>
+<p><img src="./imgs/PCA-TSNE-FFT-A.png" alt="title">
+<em>Figure 2: TSNE plot on the FFT-A feature, number of iterations = 1000</em></p>
+<p><img src="./imgs/tsne_FFT-A_00040_epochs_10ksteps_SNS.gif" alt="Alt text">
+<em>Figure 3: Dynamic plot of the FFT-A feature, iterations range from 250 to 10000</em></p>
+<h5 id="fft-z">FFT-Z</h5>
+<p>12285 FFT-Z bins &gt; PCA &gt; 50 principal components &gt; TSNE &gt; 2D Visualization</p>
+<p><img src="./imgs/PCA-TSNE-FFT-Z.png" alt="title">
+<em>Figure 4: TSNE plot on the FFT-Z feature, number of iterations = 1000</em></p>
+<p><img src="./imgs/tsne_FFT-Z_00040_epochs_10ksteps_SNS.gif" alt="Alt text">
+<em>Figure 5: Dynamic plot of the FFT-Z feature, iterations range from 250 to 10000</em></p>
+<h5 id="3rd-octave-a">3rd-Octave-A</h5>
+<p>111 3rd-Octave-A bins &gt; PCA &gt; 50 principal components &gt; TSNE &gt; 2D Visualization</p>
+<p><img src="./imgs/PCA-TSNE-3rd-Octave-A.png" alt="title">
+<em>Figure 6: TSNE plot on the 3rd-Octave-A feature, number of iterations = 1000</em></p>
+<p><img src="./imgs/tsne_3Oct-A_00040_epochs_10ksteps_SNS.gif" alt="Alt text">
+<em>Figure 7: Dynamic plot of the 3rd-Octave-A feature, iterations range from 250 to 10000</em></p>
+<h5 id="3rd-octave-z">3rd-Octave-Z</h5>
+<p>111 3rd-Octave-Z bins &gt; PCA &gt; 50 principal components &gt; TSNE &gt; 2D Visualization</p>
+<p><img src="./imgs/PCA-TSNE-3rd-Octave-Z.png" alt="title">
+<em>Figure 8: TSNE plot on the 3rd-Octave-Z feature, number of iterations = 1000</em></p>
+<p><img src="./imgs/tsne_3Oct-Z_00040_epochs_10ksteps_SNS.gif" alt="Alt text">
+<em>Figure 9: Dynamic plot of the 3rd-Octave-Z feature, iterations range from 250 to 10000</em></p>
+<h5 id="spl-a">SPL-A</h5>
+<p>For the SPL feature, different audio length of the provided files yield different number of observable data points. Segmentation of data is required to fix the data points in order to fit the algorithm.
+SPL-A is segmented to fit the nearest 6000 data points, giving the shape of (918, 6000) representing the number of entries and SPL data points respectively.</p>
+<p><img src="./imgs/PCA-TSNE-SPL-A.png" alt="title">
+<em>Figure 10: TSNE plot on the SPL-A feature, number of iterations = 1000</em></p>
+<p>The figure above does not show a good correlation for the different classes based on the SPL feature. It is assumed that the very nature of SPL for say &quot;Helicopter&quot; class could very likely be of a similar level to that of a &quot;Plane&quot; or &quot;Rumble&quot; class data.</p>
+<h4 id="combined-features">Combined features</h4>
+<h5 id="3rd-octavea-and-3rd-octvatez">3rd-Octave(A) and 3rd-Octvate(Z)</h5>
+<p>Concatenated 222 3rd-Octave-A and Z bins &gt; PCA &gt; 50 principal components &gt; TSNE &gt; 2D Visualization</p>
+<p><img src="./imgs/PCA-TSNE-3rd-Octave-A-and-Z.png" alt="title">
+<em>Figure 10: TSNE plot on the 3rd-Octave-A and Z features, number of iterations = 1000</em></p>
+<p><img src="./imgs/tsne_3Oct-A-and-Z_00040_epochs_10ksteps_SNS.gif" alt="Alt text">
+<em>Figure 11: Dynamic plot of the 3rd-Octave-A and Z features, iterations range from 250 to 10000</em></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>For both FFT(A, Z) and 3rd-Octave(A, Z) features, we can observe clusters in the 2D space after applying both the dimensionality reduction algorithms.</p>
+<p>The 3rd-Octave(A, Z) features are able to exhibit good distinct clusters as visualized from the above figures.</p>
+<p>On top of the ability to visualize a segregation between the 3 coarse classes (&quot;Plane&quot;, &quot;Helicopter&quot;, &quot;Rumble&quot;), new found clusters for &quot;Plane&quot; class can be observed from the figures.</p>
+<p>Both figures shown below describe the new clusters observed that could be of different signatures for a different range of filters to be applied on during operation.</p>
+<p><img src="./imgs/3Oct-A-Highlighted.png" alt="title">
+<em>Figure 12: New clusters observed on TSNE plot for 3rd-Octave-A features</em></p>
+<p><img src="./imgs/3Oct-A-Z-Highlighted.png" alt="title">
+<em>Figure 13: New clusters observed on TSNE plot for 3rd-Octave-A and Z features</em></p>
+<h2 id="future-work">Future work</h2>
+<p>Experiment on other clustering algorithms and techniques.
+Experiment on employing variational autoencoder (VAE) for deep model to learn and cluster with the latent space by employing reconstruction loss for optimization.</p>
+<h2 id="reference">Reference</h2>
+<p>[1] https://blog.umetrics.com/what-is-principal-component-analysis-pca-and-how-it-is-used#:~:text=Principal%20component%20analysis%2C%20or%20PCA,more%20easily%20visualized%20and%20analyzed</p>
+<p>[2] https://mlexplained.com/2018/09/14/paper-dissected-visualizing-data-using-t-sne-explained/#:~:text=t%2DSNE%20creates%20a%20probability,distribution%20in%20low%2Ddimensional%20space.&amp;text=t%2DSNE%20uses%20multiple%20tricks%20to%20try%20to%20avoid%20this%20problem</p>
+
+</body>
+</html>
